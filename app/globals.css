@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.bg-forest {
+  background-image: url('http://raw.githubusercontent.com/carcruz97/carcruz97/refs/heads/main/forest.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-profile {
+  background-image: url('http://raw.githubusercontent.com/carcruz97/carcruz97/refs/heads/main/perfil.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.chess-board {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 1px;
+  width: 100%;
+  height: 100%;
+}
+
+.chess-square {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.chess-square:hover {
+  background-color: rgba(255, 165, 0, 0.4);
+}
+
+.chess-square-light {
+  background-color: #f0d9b5;
+}
+
+.chess-square-dark {
+  background-color: #b58863;
+}
+
+.chess-piece-white {
+  color: #ffffff;
+}
+
+.chess-piece-black {
+  color: #000000;
+}
+
+.selected-piece {
+  box-shadow: inset 0 0 0 3px #3b82f6;
+}
+
+.terminal-window {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.terminal-header {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.terminal-body {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  height: 400px;
+  overflow-y: auto;
+}
+
+.terminal-input {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  width: 100%;
+}
+
+.social-icon {
+  transition: color 0.2s;
+}
+
+.social-icon:hover {
+  color: #60a5fa;
+}
+
+.language-button {
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  transition: color 0.2s;
+}
+
+.language-button:hover {
+  color: #34d399;
+}
