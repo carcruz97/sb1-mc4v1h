@@ -128,7 +128,7 @@ export const useChessGame = () => {
   const goToMove = useCallback((moveIndex: number) => {
     if (moveIndex >= 0 && moveIndex <= moveHistory.length) {
       setCurrentMove(moveIndex)
-      const newBoard = JSON.parse(JSON.stringify(INITIAL_BOARD))
+      const newBoard = JSON.parse(JSON.stringify(INITIAL_BOARD)) as ChessBoard
       const newScores = { white: 0, black: 0 }
       for (let i = 0; i < moveIndex; i++) {
         const [from, to] = moveHistory[i].split(' to ')
@@ -136,8 +136,8 @@ export const useChessGame = () => {
         const [toCol, toRow] = to.split('')
         const piece = newBoard[8 - parseInt(fromRow)][fromCol.charCodeAt(0) - 97]
         const targetPiece = newBoard[8 - parseInt(toRow)][toCol.charCodeAt(0) - 97]
-        if (targetPiece) {
-          newScores[piece.color] += getPieceValue(targetPiece.type)
+        if (piece && targetPiece) {
+          newScores[piece.color as keyof typeof newScores] += getPieceValue(targetPiece.type)
         }
         newBoard[8 - parseInt(toRow)][toCol.charCodeAt(0) - 97] = piece
         newBoard[8 - parseInt(fromRow)][fromCol.charCodeAt(0) - 97] = null
